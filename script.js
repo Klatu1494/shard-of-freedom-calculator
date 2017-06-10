@@ -44,7 +44,7 @@ addEventListener('load', () => {
     creatureDiv.className = 'creature';
     var attackDiv = document.createElement('div');
     attackDiv.appendChild(document.createTextNode('Attack: '));
-    var attackInput =
+    var attackInput = 1
   }
 
   new Shield({
