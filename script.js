@@ -39,14 +39,57 @@ class Creature {
 }
 
 addEventListener('load', () => {
-  function createCreatureDiv() {
+  function createCreatureDiv(attack = 0, life = 0, airborne = false, psion = false, bioluminiscent = false) {
     var creatureDiv = document.createElement('div');
+    creatureDiv.appendChild(document.createTextNode('Creature ' + (document.getElementsByClassName('creature').length + 1)));
     creatureDiv.className = 'creature';
     var attackDiv = document.createElement('div');
     attackDiv.appendChild(document.createTextNode('Attack: '));
-    var attackInput = 1
+    var attackInput = document.createElement('input');
+    attackInput.className = 'attack';
+    attackInput.type = 'number';
+    attackInput.value = attack;
+    attackDiv.appendChild(attackInput);
+    var lifeDiv = document.createElement('div');
+    lifeDiv.appendChild(document.createTextNode('Health: '));
+    var lifeInput = document.createElement('input');
+    lifeInput.className = 'life';
+    lifeInput.type = 'number';
+    lifeInput.min = 0;
+    lifeInput.value = life;
+    lifeDiv.appendChild(lifeInput);
+    var airborneDiv = document.createElement('div');
+    var airborneInput = document.createElement('input');
+    airborneInput.className = 'airborne';
+    airborneInput.type = 'checkbox';
+    airborneInput.checked = airborne;
+    airborneDiv.appendChild(airborneInput);
+    airborneDiv.appendChild(document.createTextNode('Airborne'));
+    var psionDiv = document.createElement('div');
+    var psionInput = document.createElement('input');
+    psionInput.className = 'psion';
+    psionInput.type = 'checkbox';
+    psionInput.checked = psion;
+    psionDiv.appendChild(psionInput);
+    psionDiv.appendChild(document.createTextNode('Deals spell damage'));
+    var bioluminiscentDiv = document.createElement('div');
+    var bioluminiscentInput = document.createElement('input');
+    bioluminiscentInput.className = 'bioluminiscent';
+    bioluminiscentInput.type = 'checkbox';
+    bioluminiscentInput.checked = bioluminiscent;
+    bioluminiscentDiv.appendChild(bioluminiscentInput);
+    bioluminiscentDiv.appendChild(document.createTextNode('Generates light'));
+    creatureDiv.appendChild(attackDiv);
+    creatureDiv.appendChild(lifeDiv);
+    creatureDiv.appendChild(airborneDiv);
+    creatureDiv.appendChild(psionDiv);
+    creatureDiv.appendChild(bioluminiscentDiv);
+    document.getElementById('creatures').appendChild(creatureDiv);
   }
 
+  for (var i = 0; i < 23; i++) {
+    createCreatureDiv();
+  }
   new Shield({
     name: 'No shield'
   });
