@@ -1,0 +1,8 @@
+.creature{
+	background-color: #ddd;
+	font-family: monospace;
+	padding: 8px;
+}
+.creature:nth-child(even){
+	background: #eee;
+}

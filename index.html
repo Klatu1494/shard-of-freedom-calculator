@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Shard of Freedom calculator</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div>
+			Oponent shield: <select id="shield"></select>
+		</div>
+		<div>
+			Shards of Freedom:
+			<select id='shards-amount'>
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4 or more</option>
+			</select>
+		</div>
+		<div class="creature">
+			<div>
+				Damage: <input class="damage" type="number" min="0" value="0">
+			</div>
+			<div>
+				Health: <input class="life" type="number" min="0" value="0">
+			</div>
+			<div>
+				<input class='airborne' type="checkbox"> Airborne 
+			</div>
+			<div>
+				<input class='psion' type="checkbox"> Deals spell damage
+			</div>
+			<div>
+				<input class='bioluminiscent' type="checkbox"> Generates light
+			</div>
+		</div>
+		<div class="creature">
+			<div>
+				Damage: <input class="damage" type="number" min="0" value="0">
+			</div>
+			<div>
+				Health: <input class="life" type="number" min="0" value="0">
+			</div>
+			<div>
+				<input class='airborne' type="checkbox"> Airborne 
+			</div>
+			<div>
+				<input class='psion' type="checkbox"> Deals spell damage
+			</div>
+			<div>
+				<input class='bioluminiscent' type="checkbox"> Generates light
+			</div>
+		</div>
+		<div id='output'></div>
+	</body>
+</html>
