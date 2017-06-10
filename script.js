@@ -48,6 +48,9 @@ addEventListener('load', () => {
   }
 
   new Shield({
+    name: 'No shield'
+  });
+  new Shield({
     name: "Shield",
     calculateDamage: creature => creature.damage - 1
   });
@@ -135,10 +138,20 @@ addEventListener('load', () => {
   new Shield({
     name: "Hope",
     calculateDamage: (creature, damageReduction) => creature.damage - damageReduction,
+    getCharges: creatures => {
+      var charges = 0;
+      for (var creature of creatures) charges += creature.bioluminiscent;
+      return charges;
+    }
   });
   new Shield({
     name: "Hope*",
-    calculateDamage: (creature, damageReduction) => creature.damage - damageReduction - 1
+    calculateDamage: (creature, damageReduction) => creature.damage - damageReduction,
+    getCharges: creatures => {
+      var charges = 1;
+      for (var creature of creatures) charges += creature.bioluminiscent;
+      return charges;
+    }
   });
   new Shield({
     name: "Fog Shield",
@@ -212,12 +225,11 @@ addEventListener('load', () => {
       var damageDistribution = new Map().set(0, 1);
       var chance = 1 / Math.pow(40, creatures.length);
       var precision = -Math.floor(Math.log10(chance)) + 2; // + 2?
-      console.log(precision);
       var evasion = shield.evasion;
-      var charges = shield.getCharges();
+      var charges = shield.getCharges(creatures);
       var reflectsSpells = shield.reflectsSpells;
       var shardsAmount = document.getElementById('shards-amount').selectedIndex;
-      calculateSingleCombination(0, charges);
+      calculateSingleCombination(0, 0, charges);
       return damageDistribution;
     }
 
